@@ -1,7 +1,7 @@
 {
   "name": "pushover-notifier",
   "display_name": "Pushover Notifier",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Send notifications through Pushover.",
   "main": "index.js",
   "scripts": {
@@ -21,6 +21,7 @@
     "LICENSE",
     "SHA256SUMS",
     "index.js",
+    "manifest.json",
     "node_modules",
     "pushover-notifier.js"
   ],
@@ -59,6 +60,6 @@
   },
   "devDependencies": {
     "babel-eslint": "^10.0.3",
-    "eslint": "^6.2.2"
+    "eslint": "^6.3.0"
   }
 }

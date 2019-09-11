@@ -1,0 +1,41 @@
+{
+  "author": "Mozilla IoT",
+  "description": "Send notifications through Pushover.",
+  "gateway_specific_settings": {
+    "webthings": {
+      "exec": "{nodeLoader} {path}",
+      "primary_type": "notifier",
+      "strict_min_version": "0.10.0"
+    }
+  },
+  "homepage_url": "https://github.com/mozilla-iot/pushover-notifier",
+  "id": "pushover-notifier",
+  "license": "MPL-2.0",
+  "manifest_version": 1,
+  "name": "Pushover Notifier",
+  "options": {
+    "default": {
+      "token": "",
+      "userKey": ""
+    },
+    "schema": {
+      "required": [
+        "userKey",
+        "token"
+      ],
+      "type": "object",
+      "properties": {
+        "userKey": {
+          "description": "Your user key",
+          "type": "string"
+        },
+        "token": {
+          "description": "Your app token",
+          "type": "string"
+        }
+      }
+    }
+  },
+  "short_name": "Pushover",
+  "version": "0.0.2"
+}
