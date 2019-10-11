@@ -1,7 +1,7 @@
 {
   "name": "pushover-notifier",
-  "display_name": "Pushover Notifier",
-  "version": "0.0.2",
+  "display_name": "Pushover",
+  "version": "0.0.3",
   "description": "Send notifications through Pushover.",
   "main": "index.js",
   "scripts": {
@@ -60,6 +60,6 @@
   },
   "devDependencies": {
     "babel-eslint": "^10.0.3",
-    "eslint": "^6.3.0"
+    "eslint": "^6.5.1"
   }
 }

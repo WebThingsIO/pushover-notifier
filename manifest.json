@@ -12,7 +12,7 @@
   "id": "pushover-notifier",
   "license": "MPL-2.0",
   "manifest_version": 1,
-  "name": "Pushover Notifier",
+  "name": "Pushover",
   "options": {
     "default": {
       "token": "",
@@ -37,5 +37,5 @@
     }
   },
   "short_name": "Pushover",
-  "version": "0.0.2"
+  "version": "0.0.3"
 }
