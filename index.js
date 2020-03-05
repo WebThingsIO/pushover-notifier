@@ -8,20 +8,30 @@
 
 'use strict';
 
-module.exports = (addonManager, manifest, errorCallback) => {
-  if (!manifest.moziot.config.userKey || !manifest.moziot.config.token) {
-    errorCallback(manifest.name, 'Add-on must be configured before use.');
-    return;
-  }
+const {Database} = require('gateway-addon');
+const manifest = require('./manifest.json');
 
-  try {
-    const PushoverNotifier = require('./pushover-notifier');
-    new PushoverNotifier(addonManager, manifest);
-  } catch (e) {
-    if (e instanceof TypeError) {
-      errorCallback(manifest.name, 'Gateway does not support notifiers.');
-    } else {
-      errorCallback(manifest.name, e);
+module.exports = (addonManager, _, errorCallback) => {
+  const db = new Database(manifest.id);
+  db.open().then(() => {
+    return db.loadConfig();
+  }).then((config) => {
+    if (!config.userKey || !config.token) {
+      errorCallback(manifest.id, 'Add-on must be configured before use.');
+      return;
     }
-  }
+
+    try {
+      const PushoverNotifier = require('./pushover-notifier');
+      new PushoverNotifier(addonManager, config);
+    } catch (e) {
+      if (e instanceof TypeError) {
+        errorCallback(manifest.id, 'Gateway does not support notifiers.');
+      } else {
+        errorCallback(manifest.id, e);
+      }
+    }
+  }).catch((e) => {
+    errorCallback(manifest.id, e);
+  });
 };

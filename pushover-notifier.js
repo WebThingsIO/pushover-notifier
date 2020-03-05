@@ -1,4 +1,5 @@
 const fetch = require('node-fetch');
+const manifest = require('./manifest.json');
 
 const {
   Constants,
@@ -64,14 +65,14 @@ class PushoverOutlet extends Outlet {
  * Instantiates one Pushover outlet
  */
 class PushoverNotifier extends Notifier {
-  constructor(addonManager, manifest) {
-    super(addonManager, 'pushover', manifest.name);
+  constructor(addonManager, config) {
+    super(addonManager, 'pushover', manifest.id);
 
     addonManager.addNotifier(this);
 
     if (!this.outlets['pushover-0']) {
       this.handleOutletAdded(
-        new PushoverOutlet(this, 'pushover-0', manifest.moziot.config)
+        new PushoverOutlet(this, 'pushover-0', config)
       );
     }
   }
