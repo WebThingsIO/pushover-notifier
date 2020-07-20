@@ -1,7 +1,6 @@
 {
   "name": "pushover-notifier",
-  "display_name": "Pushover",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Send notifications through Pushover.",
   "main": "index.js",
   "scripts": {
@@ -25,41 +24,11 @@
     "node_modules",
     "pushover-notifier.js"
   ],
-  "moziot": {
-    "api": {
-      "min": 2,
-      "max": 2
-    },
-    "type": "notifier",
-    "plugin": true,
-    "exec": "{nodeLoader} {path}",
-    "config": {
-      "userKey": "",
-      "token": ""
-    },
-    "schema": {
-      "type": "object",
-      "required": [
-        "userKey",
-        "token"
-      ],
-      "properties": {
-        "userKey": {
-          "description": "Your user key",
-          "type": "string"
-        },
-        "token": {
-          "description": "Your app token",
-          "type": "string"
-        }
-      }
-    }
-  },
   "dependencies": {
     "node-fetch": "^2.6.0"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
-    "eslint": "^7.4.0"
+    "eslint": "^7.5.0"
   }
 }
